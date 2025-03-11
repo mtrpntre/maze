@@ -1,10 +1,14 @@
 from window import *
+from cell import *
 
 def main():
     win = Window(800,600)
-    win.draw_line(Line(Point(0,0), Point(800,600)), "red")
-    win.draw_line(Line(Point(0,600), Point(800,0)), "blue")
-    win.draw_line(Line(Point(0,300), Point(800,300)), "green")
+    cell1 = Cell(Point(100,100), 50, win)
+    cell2 = Cell(Point(200,100), 50, win)
+    cell1.draw()
+    cell2.draw()
+    cell1.draw_move(cell2)
+    
     win.wait_for_close()
 
 if __name__ == "__main__":
