@@ -3,7 +3,7 @@ from window import *
 from tkinter import Tk, BOTH, Canvas
 
 class Cell:
-    def __init__(self, left_top_corner, width, window):
+    def __init__(self, left_top_corner, width, window=None):
         self.left_top_corner = left_top_corner
         self.center = Point(left_top_corner.x + width / 2, left_top_corner.y + width / 2)
         self.width = width

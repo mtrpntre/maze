@@ -5,8 +5,8 @@ import time
 
 
 
-class maze:
-    def __init__(self, x, y, num_rows, num_cols, cell_size, win):
+class Maze:
+    def __init__(self, x, y, num_rows, num_cols, cell_size, win=None):
         self.x = x
         self.y = y
         self.num_rows = num_rows
@@ -22,6 +22,7 @@ class maze:
                 self._cells[i].append(Cell(Point(self.x+self.cell_size*col, self.y+self.cell_size*i), self.cell_size, self.win))
         
         self._draw_cells()
+        print(self._cells)
     def _draw_cells(self):
         for row in self._cells:
             for cell in row:
