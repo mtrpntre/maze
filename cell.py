@@ -8,7 +8,12 @@ class Cell:
         self.center = Point(left_top_corner.x + width / 2, left_top_corner.y + width / 2)
         self.width = width
         self.right_bottom_corner = Point(left_top_corner.x + width, left_top_corner.y + width)
-        self.walls = [True, True, True, True]
+        self.walls = {
+            "up": True,
+            "right": True,
+            "down": True,
+            "left": True
+        }
         self.window = window
         
 
@@ -16,14 +21,22 @@ class Cell:
         x = self.left_top_corner.x
         y = self.left_top_corner.y
         w = self.width
-        if self.walls[0]:
+        if self.walls["up"]:
             self.window.draw_line(Line(Point(x, y), Point(x + w, y)), "black")
-        if self.walls[1]:
+        else:
+            self.window.draw_line(Line(Point(x, y), Point(x + w, y)), "white")
+        if self.walls["right"]:
             self.window.draw_line(Line(Point(x + w, y), Point(x + w, y + w)), "black")
-        if self.walls[2]:
+        else:
+            self.window.draw_line(Line(Point(x + w, y), Point(x + w, y + w)), "white")
+        if self.walls["down"]:
             self.window.draw_line(Line(Point(x + w, y + w), Point(x, y + w)), "black")
-        if self.walls[3]:
+        else:
+            self.window.draw_line(Line(Point(x + w, y + w), Point(x, y + w)), "white")
+        if self.walls["left"]:
             self.window.draw_line(Line(Point(x, y + w), Point(x, y)), "black")
+        else:
+            self.window.draw_line(Line(Point(x, y + w), Point(x, y)), "white")
 
     def draw_move(self, to_cell, undo=False):
         self.window.draw_line(Line(self.center, to_cell.center), "grey")

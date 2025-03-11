@@ -24,5 +24,13 @@ class TestMaze(unittest.TestCase):
         self.assertIsInstance(self.maze._cells[1][0], Cell)
         self.assertIsInstance(self.maze._cells[1][1], Cell)
 
+    def test_break_entrance_and_exit(self):
+        self.maze._create_cells()
+        self.maze._break_entrance_and_exit()
+        self.assertFalse(self.maze._cells[0][0].walls["up"])
+        self.assertFalse(self.maze._cells[1][1].walls["down"])
+        
+
+
 if __name__ == '__main__':
     unittest.main()
