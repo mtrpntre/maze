@@ -40,6 +40,6 @@ class Cell:
             self.window.draw_line(Line(Point(x, y + w), Point(x, y)), "white")
 
     def draw_move(self, to_cell, undo=False):
-        self.window.draw_line(Line(self.center, to_cell.center), "grey")
+        self.window.draw_line(Line(self.center, to_cell.center), "blue")
         if undo:
             self.window.draw_line(Line(self.center, to_cell.center), "red")
