@@ -15,6 +15,7 @@ class Cell:
             "left": True
         }
         self.window = window
+        self.visited = False
         
 
     def draw(self):
